@@ -43,7 +43,8 @@ public class AuthorizationServer extends AuthorizationServerConfigurerAdapter{
 	public void configure(AuthorizationServerSecurityConfigurer security) throws Exception {
 		security.tokenKeyAccess("permitAll()").checkTokenAccess("isAuthenticated()");
 	}
-
+	
+	//app credentials
 	@Override
 	public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
 		clients.inMemory()

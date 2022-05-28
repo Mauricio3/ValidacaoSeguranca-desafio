@@ -1,4 +1,4 @@
-package com.devsuperior.bds03.resources.exceptions;
+package com.devsuperior.bds04.resources.exceptions;
 
 import java.io.Serializable;
 import java.time.Instant;
