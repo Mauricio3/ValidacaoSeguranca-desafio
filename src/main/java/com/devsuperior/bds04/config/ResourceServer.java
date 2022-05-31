@@ -26,6 +26,8 @@ public class ResourceServer extends ResourceServerConfigurerAdapter {
 	
 	private static final String[] OPERATOR_GET = { "/events/**", "/cities/**" };
 	
+	private static final String[] OPERATOR_POST = { "/events/**" };
+	
 	@Override
 	public void configure(ResourceServerSecurityConfigurer resources) throws Exception {
 		//aqui ele decodifica o token recebido
@@ -44,6 +46,7 @@ public class ResourceServer extends ResourceServerConfigurerAdapter {
 		http.authorizeRequests()
 		.antMatchers(PUBLIC).permitAll()
 		.antMatchers(HttpMethod.GET, OPERATOR_GET).permitAll()
+		.antMatchers(HttpMethod.POST, OPERATOR_POST).hasAnyRole("ADMIN", "OPERATOR")
 		.anyRequest().hasAnyRole("ADMIN");
 	}
 	
